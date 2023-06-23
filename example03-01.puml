@@ -1,0 +1,26 @@
+@startuml example03
+
+entity users {
+USER_ID
+--通常線--
+==二重線==
+..ドット線..
+__太文字線__
+USER_NAME
+UID
+}
+
+entity profiles{
+PROFILE_ID
+'--
+==
+PROFILE_NAME
+PROFILE_OVERVIEW
+}
+
+' users -r-o{ profiles : resume
+users -d-o{ profiles : resume
+' users -p-o{ profiles : resume
+' users -l-o{ profiles : resume
+
+@enduml

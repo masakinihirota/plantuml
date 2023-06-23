@@ -1,0 +1,261 @@
+@startuml example01
+
+entity users
+entity profiles
+
+users ||--o{ profiles : resume
+
+@enduml
+@startuml example02
+
+' Entity01 }|..|| Entity02
+' Entity03 }o..o| Entity04
+' Entity05 ||--o{ Entity06
+' Entity07 |o--|| Entity08
+
+Entity09 "1" ||-----o{ "0以上" Entity10 : contains
+Entity11 "0以上"  }o--|| "1のみ" Entity12  : aggregation
+Entity13 "1以上" }|..o| "0 or 1"  Entity14 : 破線 で つなぐ
+
+@enduml
+@startuml example03
+
+entity users {
+USER_ID
+--通常線--
+==二重線==
+..ドット線..
+__太文字線__
+USER_NAME
+UID
+}
+
+entity profiles{
+PROFILE_ID
+'--
+==
+PROFILE_NAME
+PROFILE_OVERVIEW
+}
+
+' コメントアウトを利用して
+' ↓上下左右の位置に配置することを試せます。
+
+' users -right-o{ profiles : resume
+' users -down-o{ profiles : resume
+' users -up-o{ profiles : resume
+users -left-o{ profiles : resume
+
+@enduml
+@startuml example04
+
+' エンティティ名の日本語化
+entity "ユーザー" as users {
+' プライマリキー
++ USER_ID [PK]
+--
+USER_NAME
+UID
+}
+
+' エンティティ名の日本語化
+entity "プロファイル" as profiles {
+' プライマリキー
+' 丸記号
++ PROFILE_ID [PK]
+--
+' 外部キー
+' ダイヤ記号
+# USER_ID [FK]
+--
+PROFILE_NAME
+PROFILE_OVERVIEW
+}
+
+users --right--o{ profiles : resume
+
+@enduml
+@startuml example05
+
+' 拡大縮小
+scale 0.7
+
+' タイトル
+title Values communication \n example
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor red
+skinparam titleBackgroundColor #d9cb65
+
+
+entity "ユーザー" as users {
+' 丸記号
++ USER_ID [PK]
+--
+' 強調文字
+**USER_NAME**
+' 丸記号＋強調文字
+* **UID**
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイル" as profiles {
++ PROFILE_ID [PK]
+--
+' ダイヤ記号
+# USER_ID [FK]
+--
+PROFILE_NAME
+PROFILE_OVERVIEW
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイルの画像" as profile_images {
++ IMAGE_ID [PK]
+--
+# PROFILE_ID [FK]
+--
+PROFILE_IMAGE
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+
+' コメント：配置方法
+users --right--o{ profiles : resume
+profiles --down--|{ profile_images : image ファイル
+
+' ヘッダー
+header
+<font color=red>Warning:</font>
+Do not use in production.
+製品版で使わないでね。
+endheader
+
+' フッター
+center footer Generated for demonstration
+
+' キャプション(見出し)
+caption Values Network Service
+
+' legend(説明文)
+legend
+' legend top right
+' legend left
+これは説明文です
+
+ER図の解説を行います。
+空行もそのまま表示されます。
+endlegend
+
+@enduml
+@startuml example06
+
+header some header
+footer some footer
+title My title
+caption This is caption
+legend
+The legend
+end legend
+
+entity users
+entity profiles
+
+users ||--o{ profiles : resume
+
+@enduml
+
+
+@startuml example07
+
+<style>
+title {
+HorizontalAlignment right
+FontSize 24
+FontColor blue
+}
+header {
+HorizontalAlignment center
+FontSize 26
+FontColor purple
+}
+footer {
+HorizontalAlignment left
+FontSize 28
+FontColor red
+}
+legend {
+FontSize 30
+BackGroundColor yellow
+Margin 30
+Padding 50
+}
+caption {
+FontSize 32
+}
+</style>
+header some header
+footer some footer
+title My title
+caption This is caption
+legend
+The legend
+end legend
+
+entity users
+entity profiles
+
+users ||--o{ profiles : resume
+
+@enduml
+@startuml example08
+
+entity "ユーザー" as users {
++ USER_ID [PK]
+--
+USER_NAME
+UID
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイル" as profiles {
++ PROFILE_ID [PK]
+--
+' ダイヤ記号
+# USER_ID [FK]
+--
+PROFILE_NAME
+PROFILE_OVERVIEW
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイルの画像" as profile_images {
++ IMAGE_ID [PK]
+--
+# PROFILE_ID [FK]
+--
+PROFILE_IMAGE
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+
+' コメント：配置方法
+users --right--o{ profiles : resume
+
+
+' hide @unlinked
+' remove @unlinked
+
+@enduml

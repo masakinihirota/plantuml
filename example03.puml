@@ -18,9 +18,12 @@ PROFILE_NAME
 PROFILE_OVERVIEW
 }
 
-users --right--o{ profiles : resume
-' users --down--o{ profiles : resume
-' users --up--o{ profiles : resume
-' users --left--o{ profiles : resume
+' コメントアウトを利用して
+' ↓上下左右の位置に配置することを試せます。
+
+' users -right-o{ profiles : resume
+' users -down-o{ profiles : resume
+' users -up-o{ profiles : resume
+users -left-o{ profiles : resume
 
 @enduml
