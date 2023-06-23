@@ -1,0 +1,8 @@
+@startuml example01
+
+entity users
+entity profiles
+
+users ||--o{ profiles : resume
+
+@enduml

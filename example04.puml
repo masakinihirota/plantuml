@@ -1,0 +1,28 @@
+@startuml example04
+
+' エンティティ名の日本語化
+entity "ユーザー" as users {
+' プライマリキー
++ USER_ID [PK]
+--
+USER_NAME
+UID
+}
+
+' エンティティ名の日本語化
+entity "プロファイル" as profiles {
+' プライマリキー
+' 丸記号
++ PROFILE_ID [PK]
+--
+' 外部キー
+' ダイヤ記号
+# USER_ID [FK]
+--
+PROFILE_NAME
+PROFILE_OVERVIEW
+}
+
+users --right--o{ profiles : resume
+
+@enduml

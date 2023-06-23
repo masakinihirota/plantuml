@@ -1,0 +1,12 @@
+@startuml example02
+
+' Entity01 }|..|| Entity02
+' Entity03 }o..o| Entity04
+' Entity05 ||--o{ Entity06
+' Entity07 |o--|| Entity08
+
+Entity09 "1" ||-----o{ "0以上" Entity10 : contains
+Entity11 "0以上"  }o--|| "1のみ" Entity12  : aggregation
+Entity13 "1以上" }|..o| "0 or 1"  Entity14 : 破線 で つなぐ
+
+@enduml

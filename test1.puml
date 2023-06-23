@@ -1,0 +1,50 @@
+@startuml example01
+
+' 自分好みのテーマを設定する
+' 使用する時はコメントアウトを外します
+' !theme _none_
+!theme toy
+' !theme vibrant
+
+entity "ユーザー" as users {
+
++ USER_ID [PK]
+--
+USER_NAME
+UID
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイル" as profiles {
++ PROFILE_ID [PK]
+--
+' ダイヤ記号
+# USER_ID [FK]
+--
+PROFILE_NAME
+PROFILE_OVERVIEW
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+entity "プロファイルの画像" as profile_images {
++ IMAGE_ID [PK]
+--
+# PROFILE_ID [FK]
+--
+PROFILE_IMAGE
+INSERT_DATA
+UPDATE_DATE
+DELETE_FLAG
+}
+
+' コメント：配置方法
+users --right--o{ profiles : resume
+
+' hide @unlinked
+' remove @unlinked
+
+@enduml
