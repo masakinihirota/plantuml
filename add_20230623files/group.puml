@@ -23,4 +23,12 @@ package frame <<frame>> {
   entity entity40 <<T,TRANSACTION>>{}
 }
 
+package node <<node>> {
+  entity entity50 <<T,TRANSACTION>>{}
+}
+
+package default {
+  entity entity60 <<T,TRANSACTION>>{}
+}
+
 @enduml
