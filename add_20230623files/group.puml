@@ -1,0 +1,26 @@
+@startuml group
+!define TRANSACTION CAE7F2
+
+package database <<Database>> {
+  entity entity01 <<T,TRANSACTION>> {
+   'ここの項目を書く
+  }
+  entity entity02 <<T,TRANSACTION>> {
+   'ここの項目を書く
+  }
+}
+
+package folder <<folder>> {
+  entity entity10 <<T,TRANSACTION>>{}
+  entity entity11 <<T,TRANSACTION>>{}
+}
+
+package rectangle <<rectangle>> {
+  entity entity30 <<T,TRANSACTION>>{}
+}
+
+package frame <<frame>> {
+  entity entity40 <<T,TRANSACTION>>{}
+}
+
+@enduml

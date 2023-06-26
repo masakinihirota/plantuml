@@ -1,0 +1,8 @@
+@startuml relation
+
+!include table.puml
+
+users }|-l-|| countries
+users ||-r-o{ posts
+
+@enduml

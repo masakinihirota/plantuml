@@ -1,0 +1,14 @@
+@startuml modifications_E_to_T
+
+!define TRANSACTION CAE7F2
+
+entity users as "users\nユーザー" <<T,TRANSACTION>> {
+  + id INT(10) [PK]
+  --
+* **name** : text
+**description** : text
+created_at : DATE
+
+}
+
+@enduml
